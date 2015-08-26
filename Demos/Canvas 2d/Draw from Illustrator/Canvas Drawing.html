@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Canvas Demo</title>
+        
+        <style type="text/css">
+            body {
+                font-family: HelveticaNeue-Light, Helvetica, Arial, sans-serif;
+                background: grey;
+            }
+            
+            div#page {
+                background: white;
+                border: 1px solid black;
+                border-radius: 10px;
+                margin: 2em 10%;
+                padding: 2em;
+                box-shadow: 10px 10px 15px rgba(0,0,0, 0.5);
+                min-width: 600px;
+            }
+            
+            canvas {
+                border: 1px solid black;
+                box-shadow: 1px 1px 2px black;
+            }
+        </style>
+        
+        
+        <script type="text/javascript">
+            window.addEventListener("load", initPage, false);
+            
+            function initPage() {
+                
+                // get canvas with 2D Drawing API
+                var canvas = document.getElementById("drawing");
+                
+                var ctx = canvas.getContext("2d");
+                
+                
+                if (ctx) {
+                    
+                    ctx.save();
+                    
+                    // Canvas Drawing Code
+                    ctx.fillStyle   = "#9bbfde";
+                    
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    ctx.restore();                        
+                    
+                    var gradient = ctx.createLinearGradient(0, 0, 502-48.5, 181.5);
+                    gradient.addColorStop(0, "#5c1000");
+                    gradient.addColorStop(1, "#f7bd57");
+                    
+                    ctx.fillStyle   = gradient;
+                    ctx.strokeStyle = "#704500";
+                    ctx.lineWidth = 3;
+                    
+                    ctx.fillRect(48.5, 281.5, 502, 100);
+                    ctx.strokeRect(48.5, 281.5, 502, 100);
+                    
+                    ctx.restore();
+                    
+                    // create mask
+                    ctx.beginPath();
+                    ctx.moveTo(118, 61);
+                    ctx.lineTo(118+364, 61);
+                    ctx.lineTo(118+364, 227+61);
+                    ctx.lineTo(118, 227+61);
+                    ctx.lineTo(118, 61);
+                    ctx.closePath();
+                    ctx.clip();
+                    
+                    
+                    // fill sun
+                    ctx.fillStyle   = "#f7bd57";
+                    ctx.strokeStyle = "#602222";
+                    ctx.lineWidth   = 3;
+                    
+                    ctx.beginPath();
+                    ctx.arc(138.595+322.024/2, 82.952+322.024/2, 322.024/2, 0, Math.PI*2);
+                    ctx.closePath();
+                    
+                    ctx.fill();
+                    ctx.stroke();
+                    
+                    ctx.restore();
+                    
+                    // water arcs
+                    ctx.strokeStyle  = "#0030d0";
+                    ctx.lineWidth    = 6;
+                    
+                    ctx.beginPath();
+                    
+                    ctx.arc(376.221, 149.363, 72.727, Math.PI, -Math.PI/2);
+                    
+                    ctx.stroke();
+                    
+                    ctx.beginPath();
+                    ctx.setTransform(1, 0, 0, 1, 10, 10);
+                    ctx.arc(376.221, 149.363, 72.727, Math.PI, -Math.PI/2);
+                    ctx.stroke();
+                    
+                    ctx.beginPath();
+                    ctx.setTransform(1, 0, 0, 1, 20, 20);
+                    ctx.arc(376.221, 149.363, 72.727, Math.PI, -Math.PI/2);
+                    ctx.stroke();
+                    
+                    ctx.restore();
+                    ctx.setTransform(1, 0, 0, 1, 0, 0);
+                    
+                    // watering can
+                    ctx.fillStyle   = "#8f3c00";
+                    ctx.strokeStyle = "black";
+                    ctx.lineWidth   = 3;
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(196.73, 281.5);
+                    ctx.lineTo(270.12, 281.5);
+                    ctx.arcTo(286, 281, 287.6, 263.71, 22);
+                    ctx.lineTo(286.24, 253.97);
+                    ctx.bezierCurveTo(313,248, 332, 222, 335.99, 215.88);
+                    ctx.bezierCurveTo(341, 219, 351, 218, 354.10, 214.55);
+                    
+                    ctx.stroke();
+                }
+            }            
+        </script>
+        
+    </head>
+    
+    <body>
+        
+        <div id="page">
+            
+            <h1>Canvas Demo</h1>
+            <p>Below is a canvas emelement, which is controlled by Javascript.</p>
+            
+            <canvas id="drawing" width="600" height="400">
+                You browser does not support the canvas tag
+            </canvas>
+            
+        </div>
+    </body>
+</html>

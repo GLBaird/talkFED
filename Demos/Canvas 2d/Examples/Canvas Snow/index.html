@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Canvas Demo</title>
+        
+        <style type="text/css">
+            body {
+                font-family: HelveticaNeue-Light, Helvetica, Arial, sans-serif;
+                background: grey;
+            }
+            
+            div#page {
+                background: white;
+                border: 1px solid black;
+                border-radius: 10px;
+                margin: 2em 10%;
+                padding: 2em;
+                box-shadow: 10px 10px 15px rgba(0,0,0, 0.5);
+                min-width: 600px;
+            }
+            
+            canvas {
+                border: 1px solid black;
+                box-shadow: 1px 1px 2px black;
+            }
+        </style>
+        
+        
+        <script type="text/javascript">
+            window.addEventListener("load", initPage, false);
+            
+            function initPage() {
+                
+                // get canvas with 2D Drawing API
+                var canvas = document.getElementById("drawing");
+                
+                var ctx = canvas.getContext("2d");
+                if (ctx) {
+                    
+                    // Canvas Drawing Code
+                    ctx.fillStyle   = "#9bbfde";
+                    ctx.strokeStyle = "black";
+                    ctx.lineWidth   = "2px";
+                    
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        
+                    
+                }
+            }            
+        </script>
+        
+    </head>
+    
+    <body>
+        
+        <div id="page">
+            
+            <h1>Canvas Demo</h1>
+            <p>Below is a canvas emelement, which is controlled by Javascript.</p>
+            
+            <canvas id="drawing" width="600" height="400">
+                You browser does not support the canvas tag
+            </canvas>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>3D CSS</title>
+        <style type="text/css">
+            @-webkit-keyframes spinCube {
+                0% {
+                    -webkit-transform: rotateY(0deg);
+                    transform: rotateY(0deg);
+                }
+                100% {
+                    -webkit-transform: rotateY(360deg);
+                    transform: rotateY(360deg);
+                }
+            }
+            
+            @keyframes spinCube {
+                0% {
+                    -webkit-transform: rotateY(0deg);
+                    transform: rotateY(0deg);
+                }
+                100% {
+                    -webkit-transform: rotateY(360deg);
+                    transform: rotateY(360deg);
+                }
+            }
+            
+            html {
+                height: 100%;
+                background: black; /* Old browsers */
+                background: -moz-linear-gradient(top,  rgba(69,72,77,1) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(69,72,77,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* IE10+ */
+                background: linear-gradient(to bottom,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* W3C */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */    
+            }
+            
+            body {
+                height: 100%;
+                margin: 0px;
+                padding: 1px;
+                font-family: HelveticaNeue-Light, Helvetica, Arial, sans-serif;
+                color: white;
+            }
+            
+            div#Camera {
+                margin: 8%;
+                width: 84%;
+                height: 84%;
+                
+                -webkit-perspective: 2000px;
+                -webkit-perspective-origin: 50% 100px;
+                perspective: 600px;
+                perspective-origin: 50% 100px;
+            }
+            
+            div.cubeFace {
+                background: #999;
+                border: white 2px solid;
+                padding: 1em 2em;
+                width: 150px;
+                height: 150px;
+                opacity: 0.7;
+                position: absolute;
+                margin: 20% 35%;
+                border-radius: 10px;
+                
+                text-shadow: 0px 0px 5px rgba(255,255,255, 0.5);
+                                
+                -webkit-box-reflect: below 20px -webkit-linear-gradient(bottom, rgba(0,0,0,0.25) 0%,rgba(0,0,0,0.07) 21%,rgba(0,0,0,0) 46%,rgba(0,0,0,0) 100%);
+            }
+            
+            div#Cube {
+                height: 100%;
+                
+                -webkit-transform-style: preserve-3d;
+                -webkit-transform-origin: 50% 50% 50%;
+                
+                -webkit-animation: spinCube 5s infinite linear;
+                
+                transform-style: preserve-3d;
+                transform-origin: 50% 50% 50%;
+                
+                animation: spinCube 5s infinite linear;
+            }
+            
+            div#face1 {
+                -webkit-transform: translate3d(0px, 50px, 0px);
+                transform: translate3d(0px, 50px, 0px);
+            }
+            
+            div#face2 {
+                -webkit-transform-origin: top left;
+                -webkit-transform: translate3d(215px, 50px, 0px)
+                                   rotateY(90deg);
+                                   
+               transform-origin: top left;
+               transform: translate3d(215px, 50px, 0px)
+                          rotateY(90deg);
+            }
+            
+            div#face3 {
+                -webkit-transform-origin: top left;
+                -webkit-transform: translate3d(215px, 50px, -215px)
+                                   rotateY(180deg);
+                                   
+               transform-origin: top left;
+               transform: translate3d(215px, 50px, -215px)
+                          rotateY(180deg);
+            }
+            
+            div#face4 {
+                -webkit-transform-origin: top left;
+                -webkit-transform: translate3d(0px, 50px, -215px)
+                                   rotateY(-90deg);
+                                   
+               transform-origin: top left;
+               transform: translate3d(0px, 50px, -215px)
+                          rotateY(-90deg);
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        <div id="Camera">
+            
+            <div id="Cube">
+                
+                <div class="cubeFace" id="face1">
+                    <h2>Face 1</h2>
+                    <p>This is a face of the cube.</p>
+                </div>
+                
+                <div class="cubeFace" id="face2">
+                    <h2>Face 2</h2>
+                    <p>This is a face of the cube.</p>
+                </div>
+                
+                <div class="cubeFace" id="face3">
+                    <h2>Face 3</h2>
+                    <p>This is a face of the cube.</p>
+                </div>
+                
+                <div class="cubeFace" id="face4">
+                    <h2>Face 4</h2>
+                    <p>This is a face of the cube.</p>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,133 @@
+@-webkit-keyframes fire {
+    100% {
+        background-position: -160px center;
+    }
+}
+
+@-webkit-keyframes gbWalkRight {
+    100% {
+        background-position: -624px top;
+    }
+}
+
+@-webkit-keyframes gbWalkLeft {
+    100% {
+        background-position: -624px -150px;
+    }
+}
+
+body {
+    font-family: HelveticaNeue-Light, HelveticaNeue, Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    color: #444;
+    
+    background: #EFEFEF;
+    
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.6em;
+    font-weight: lighter;
+    margin: 0;
+    padding: 0.5em 1rem;
+    color: white;
+    
+    background: #444;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0.3em 1rem;
+    background: #DDD;
+    box-shadow: 0 2px 2px #999;
+}
+
+main {
+    margin: 0;
+    height: 20em;
+    border: 1px solid #444;
+    overflow: hidden;
+    background: #444;
+    -webkit-perspective: 10em;
+    -webkit-perspective-origin: center;
+}
+
+p.info {
+    margin: 0.5em 1rem;
+}
+
+div#container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;height: 100%;
+    transition: left 0.5s linear;
+}
+
+div#background {
+    background-image: url(../images/background.jpg);
+    position: relative;
+    left: 0;
+    top:  0;
+    width: 2016px;
+    height: 287px;
+    background-color: red;
+    -webkit-transform: translateZ(-10em) scale(2.4, 2.4) translateX(310px);
+    z-index: 1;
+}
+
+div.lampost {
+    background-image: url(../images/lamp2.png);
+    width: 34px;
+    height: 284px;
+    position: absolute;
+    z-index: 10;
+    left: 300px;
+    top: 190px;
+    -webkit-transform: translateZ(-6em);
+}
+
+div.lampost:nth-of-type(2) {
+    left: 2500px;
+    -webkit-transform: translateZ(-2em);
+}
+
+div#fire {
+    background-image: url(../images/fire.png);
+    width: 32px;
+    height: 64px;
+    position: absolute;
+    top: 125px;
+    left: -420px;
+    z-index: 1;
+    -webkit-transform: translateZ(-10em) scale(3,3);
+    -webkit-animation: fire 1s steps(5) infinite;
+}
+
+div#gb {
+    background-image: url(../images/guy_walk.png);
+    background-position: left -300px;
+    width: 104px;
+    height: 150px;
+    z-index: 2;
+    top: 260px;
+    left: 600px;
+    position: absolute;
+    -webkit-transform: translateZ(-10em) scale(1.3, 1.3);
+}
+
+div#gb.left {
+    background-position: -104px -300px;
+}
+
+div#gb.rightWalk {
+    background-position: left top;
+    -webkit-animation: gbWalkRight 1s steps(6) infinite;
+}
+
+div#gb.leftWalk {
+    background-position: left -150px;
+    -webkit-animation: gbWalkLeft 1s steps(6) infinite;
+}

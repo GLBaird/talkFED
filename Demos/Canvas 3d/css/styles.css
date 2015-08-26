@@ -1,0 +1,18 @@
+body {
+    font-family: HelveticaNeue-Light, Helvetica, Arial, sans-serif;
+    background: grey;
+}
+
+div#page {
+    background: white;
+    margin: 2em 10%;
+    min-width: 600px;
+    padding: 2em;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+canvas {
+    border:  1px solid black;
+}
